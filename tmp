@@ -1,0 +1,35 @@
+/*                                                                            */
+/* ************************************************************************** */
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include "get_next_line.h"
+#include <stdio.h>
+
+char    *build_list(int fd, t_list **llist )
+{
+    int     n_rd;
+    char    *nl_ptr;
+    char    *buf;
+
+    nl_ptr =  NULL;//list = head;
+    while (!nl_ptr )
+    {
+        buf = malloc(sizeof(char) * BUFFER_SIZE + 1 );
+		if (buf == NULL)
+			return ;
+        n_rd = read(fd, buf, BUFFER_SIZE);
+		if (!n_read)
+		{
+			free(buf);
+			return;
+		}
+        nl_ptr = ft_memchr(buf, BUFFER_SIZE);
+        buf[n_rd ] = '\0';
+        ft_lstadd_back(llist, ft_lstnew(buf));
+    }
+	return nl_ptr;
+}
+   
+
+
