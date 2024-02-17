@@ -6,7 +6,7 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 22:06:51 by mprunty           #+#    #+#             */
-/*   Updated: 2024/02/13 21:12:41 by mprunty          ###   ########.fr       */
+/*   Updated: 2024/02/11 06:00:53 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ typedef struct s_list
 {
 	char			*str;
 	struct s_list	*next;
-//	int				s_len;
-//	char			*nl;
+	int				s_len;
+	char			*nl;
 }	t_list;
 
 char	*get_next_line(int fd);
