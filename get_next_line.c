@@ -6,7 +6,7 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:51:38 by mprunty           #+#    #+#             */
-/*   Updated: 2024/02/16 23:25:06 by mprunty          ###   ########.fr       */
+/*   Updated: 2024/02/22 18:08:58 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fcntl.h>
@@ -229,6 +229,8 @@ void	refresh_list(t_list **llist)
 		free(nl_lst);
 	}
 	*/
+}
+
 void	copy_str(t_list *llist, char *str)
 {
 	int i;
@@ -305,8 +307,11 @@ char	*get_next_line(int fd)
 	static t_list   *llist = NULL;
 	char 			*ret_str;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) <= 0 )
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0 )
+	{
+		printf("%i" ,read(fd, 0, 0));
 		return (NULL);
+	}
 	build_list(fd, &llist);
 	if (!llist)
 		return (NULL);
