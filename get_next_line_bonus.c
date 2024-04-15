@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:51:38 by mprunty           #+#    #+#             */
-/*   Updated: 2024/04/15 14:57:37 by mprunty          ###   ########.fr       */
+/*   Updated: 2024/04/15 16:20:10 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_str(t_list **lst)
 {
@@ -115,14 +115,14 @@ void	build_list(int fd, t_list **lst)
 
 char	*get_next_line(int fd)
 {
-	static t_list	*lst = NULL;
+	static t_list	*lst[FD_SIZE];
 	char			*ret_str;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	build_list(fd, &lst);
-	if (!lst)
+	build_list(fd, &lst[fd]);
+	if (!lst[fd])
 		return (NULL);
-	ret_str = get_next_str(&lst);
+	ret_str = get_next_str(&lst[fd]);
 	return (ret_str);
 }
