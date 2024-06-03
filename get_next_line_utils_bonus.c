@@ -6,14 +6,14 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:10:57 by mprunty           #+#    #+#             */
-/*   Updated: 2024/04/15 15:29:58 by mprunty          ###   ########.fr       */
+/*   Updated: 2024/06/03 19:09:40 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include "get_next_line_bonus.h"
-
+/*
 size_t	ft_strlen(const char *str)
 {
 	size_t	size;
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *str)
 			size++;
 	return (size);
 }
-
+*/
 int	nl_chr(const void *buf, size_t n)
 {
 	int		c;
@@ -42,7 +42,7 @@ int	nl_chr(const void *buf, size_t n)
 	return (0);
 }
 
-void	lstjoin(t_list **lst, char *str, int len, int has_nl)
+void	lstjoin(gnl_list **lst, char *str, int len, int has_nl)
 {
 	char	*tmptr;
 
@@ -57,11 +57,11 @@ void	lstjoin(t_list **lst, char *str, int len, int has_nl)
 	return ;
 }
 
-t_list	*ft_lstnew(char *str, int has_nl)
+gnl_list	*gnl_lstnew(char *str, int has_nl)
 {
-	t_list	*lst;
+	gnl_list	*lst;
 
-	lst = (t_list *)malloc(sizeof(*lst));
+	lst = (gnl_list *)malloc(sizeof(*lst));
 	lst->str = str;
 	lst->next = NULL;
 	lst->s_len = ft_strlen(lst->str);

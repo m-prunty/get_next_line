@@ -14,10 +14,10 @@
 #include <stdlib.h>
 #include "get_next_line.h"
 
-char	*get_next_str(t_list **lst)
+char	*get_next_str(gnl_list **lst)
 {
 	char	*ret_str;
-	t_list	*tmp;
+	gnl_list	*tmp;
 
 	ret_str = malloc(sizeof(char) * (*lst)->s_len + 1);
 	ft_strncpy(ret_str, (*lst)->str, (*lst)->s_len);
@@ -29,9 +29,9 @@ char	*get_next_str(t_list **lst)
 	return (ret_str);
 }
 
-void	lstadd_nl(t_list **lst, char *str, int has_nl)
+void	lstadd_nl(gnl_list **lst, char *str, int has_nl)
 {
-	t_list	*lastcur;
+	gnl_list	*lastcur;
 	char	*m_str;
 	int		len;
 
@@ -51,14 +51,14 @@ void	lstadd_nl(t_list **lst, char *str, int has_nl)
 				free(m_str);
 			}
 			else
-				lastcur->next = ft_lstnew(m_str, has_nl);
+				lastcur->next = gnl_lstnew(m_str, has_nl);
 		}
 		else
-			*lst = ft_lstnew(m_str, has_nl);
+			*lst = gnl_lstnew(m_str, has_nl);
 	}
 }
 
-void	clean_buf(t_list **lst, char *buf)
+void	clean_buf(gnl_list **lst, char *buf)
 {
 	int		nl;
 	char	*tmp;
@@ -85,7 +85,7 @@ void	clean_buf(t_list **lst, char *buf)
 	return ;
 }
 
-void	build_list(int fd, t_list **lst)
+void	build_list(int fd, gnl_list **lst)
 {
 	int		n_rd;
 	int		nl;
@@ -115,7 +115,7 @@ void	build_list(int fd, t_list **lst)
 
 char	*get_next_line(int fd)
 {
-	static t_list	*lst = NULL;
+	static gnl_list	*lst = NULL;
 	char			*ret_str;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)

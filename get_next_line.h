@@ -24,24 +24,24 @@
 #  define FD_SIZE 65535
 # endif
 
-typedef struct s_list
+typedef struct s_gnl_list
 {
-	struct s_list	*next;
+	struct s_gnl_list	*next;
 	char			*str;
 	int				s_len;
 	int				nl;
-}	t_list;
+}	gnl_list;
 
 size_t	ft_strlen(const char *str);
 int		nl_chr(const void *buf, size_t n);
-void	lstjoin(t_list **lst, char *str, int len, int has_nl);
-t_list	*ft_lstnew(char *str, int has_nl);
+void	lstjoin(gnl_list **lst, char *str, int len, int has_nl);
+gnl_list	*gnl_lstnew(char *str, int has_nl);
 void	*ft_strncpy(void *dest, const void *src, size_t n);
 
-void	lstadd_nl(t_list **lst, char *str, int has_nl);
-char	*get_next_str(t_list **lst);
-void	clean_buf(t_list **lst, char *buf);
-void	build_list(int fd, t_list **lst);
+void	lstadd_nl(gnl_list **lst, char *str, int has_nl);
+char	*get_next_str(gnl_list **lst);
+void	clean_buf(gnl_list **lst, char *buf);
+void	build_list(int fd, gnl_list **lst);
 char	*get_next_line(int fd);
 
 #endif
