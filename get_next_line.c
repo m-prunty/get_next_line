@@ -6,12 +6,9 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:51:38 by mprunty           #+#    #+#             */
-/*   Updated: 2024/04/15 14:57:37 by mprunty          ###   ########.fr       */
+/*   Updated: 2024/12/19 02:18:12 by potz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
 #include "get_next_line.h"
 
 char	*get_next_str(gnl_list **lst)

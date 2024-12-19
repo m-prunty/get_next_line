@@ -6,12 +6,9 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:10:57 by mprunty           #+#    #+#             */
-/*   Updated: 2024/06/03 19:09:40 by mprunty          ###   ########.fr       */
+/*   Updated: 2024/12/19 02:18:24 by potz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
 #include "get_next_line_bonus.h"
 /*
 size_t	ft_strlen(const char *str)
