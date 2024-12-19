@@ -6,7 +6,7 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 22:06:51 by mprunty           #+#    #+#             */
-/*   Updated: 2024/06/03 18:52:23 by mprunty          ###   ########.fr       */
+/*   Updated: 2024/12/19 02:40:11 by potz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef GET_NEXT_LINE_BONUS_H
@@ -15,6 +15,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include "../include/libft.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
@@ -36,7 +37,6 @@ typedef struct s_gnl_list
 }	gnl_list;
 #endif
 
-# include "../libft.h"
 //size_t	ft_strlen(const char *str);
 int		nl_chr(const void *buf, size_t n);
 void	lstjoin(gnl_list **lst, char *str, int len, int has_nl);
