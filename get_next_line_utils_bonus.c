@@ -6,7 +6,7 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:10:57 by mprunty           #+#    #+#             */
-/*   Updated: 2024/12/19 02:37:44 by potz             ###   ########.fr       */
+/*   Updated: 2024/12/26 23:00:53 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line_bonus.h"
@@ -39,7 +39,7 @@ int	nl_chr(const void *buf, size_t n)
 	return (0);
 }
 
-void	lstjoin(gnl_list **lst, char *str, int len, int has_nl)
+void	lstjoin(t_gnl_list **lst, char *str, int len, int has_nl)
 {
 	char	*tmptr;
 
@@ -54,11 +54,11 @@ void	lstjoin(gnl_list **lst, char *str, int len, int has_nl)
 	return ;
 }
 
-gnl_list	*gnl_lstnew(char *str, int has_nl)
+t_gnl_list	*gnl_lstnew(char *str, int has_nl)
 {
-	gnl_list	*lst;
+	t_gnl_list	*lst;
 
-	lst = (gnl_list *)malloc(sizeof(*lst));
+	lst = (t_gnl_list *)malloc(sizeof(*lst));
 	lst->str = str;
 	lst->next = NULL;
 	lst->s_len = ft_strlen(lst->str);

@@ -6,15 +6,15 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:51:38 by mprunty           #+#    #+#             */
-/*   Updated: 2024/12/19 02:56:41 by potz             ###   ########.fr       */
+/*   Updated: 2024/12/26 23:02:58 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line_bonus.h"
 
-char	*get_next_str(gnl_list **lst)
+char	*get_next_str(t_gnl_list **lst)
 {
-	char	*ret_str;
-	gnl_list	*tmp;
+	char		*ret_str;
+	t_gnl_list	*tmp;
 
 	ret_str = malloc(sizeof(char) * (*lst)->s_len + 1);
 	ft_strncpy(ret_str, (*lst)->str, (*lst)->s_len);
@@ -26,11 +26,11 @@ char	*get_next_str(gnl_list **lst)
 	return (ret_str);
 }
 
-void	lstadd_nl(gnl_list **lst, char *str, int has_nl)
+void	lstadd_nl(t_gnl_list **lst, char *str, int has_nl)
 {
-	gnl_list	*lastcur;
-	char	*m_str;
-	int		len;
+	t_gnl_list	*lastcur;
+	char		*m_str;
+	int			len;
 
 	len = ft_strlen(str);
 	m_str = malloc(sizeof(char) * len + 1);
@@ -55,7 +55,7 @@ void	lstadd_nl(gnl_list **lst, char *str, int has_nl)
 	}
 }
 
-void	clean_buf(gnl_list **lst, char *buf)
+void	clean_buf(t_gnl_list **lst, char *buf)
 {
 	int		nl;
 	char	*tmp;
@@ -82,7 +82,7 @@ void	clean_buf(gnl_list **lst, char *buf)
 	return ;
 }
 
-void	build_list(int fd, gnl_list **lst)
+void	build_list(int fd, t_gnl_list **lst)
 {
 	int		n_rd;
 	int		nl;
@@ -112,8 +112,8 @@ void	build_list(int fd, gnl_list **lst)
 
 char	*get_next_line(int fd)
 {
-	static gnl_list	*lst[FD_SIZE];
-	char			*ret_str;
+	static t_gnl_list	*lst[FD_SIZE];
+	char				*ret_str;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
